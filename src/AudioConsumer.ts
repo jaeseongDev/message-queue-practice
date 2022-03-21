@@ -7,14 +7,16 @@ import { getManager } from "typeorm";
 export class AudioConsumer {
   private readonly logger: Logger = new Logger(this.constructor.name);
 
-  @Process('transcode')
+  // @Process('transcode')
+  @Process({
+    name: 'transcode',
+    concurrency: 5
+  })
   async handleTranscode(job: Job) {
+    this.logger.debug('Start transcoding...');
     const entityManager = getManager();
-    const result = await entityManager.query(`select 1 from duo`);
-    // this.logger.debug('Start transcoding...');
-    // setTimeout(() => {
-    //   this.logger.debug(job.data);
-    // }, 10000);
-
+    const result = await entityManager.query(`SELECT * FROM test WHERE SLEEP(3)=0`);
+    console.log(result);
+    // this.logger.debug(job.data);
   }
 }

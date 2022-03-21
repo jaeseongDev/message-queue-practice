@@ -12,10 +12,10 @@ import { AudioConsumer } from "./AudioConsumer";
         host: 'localhost',
         port: 6379,
       },
-      limiter: {
-        max: 1,
-        duration: 60000
-      }
+      // limiter: {
+      //   max: 1,
+      //   duration: 60000
+      // }
     }),
   ],
   providers: [AppService, AudioConsumer],
