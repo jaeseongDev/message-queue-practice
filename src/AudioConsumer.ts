@@ -9,7 +9,8 @@ export class AudioConsumer {
   @Process('transcode')
   handleTranscode(job: Job) {
     this.logger.debug('Start transcoding...');
-    this.logger.debug(job.data);
-    this.logger.debug('Transcoding completed');
+    setTimeout(() => {
+      this.logger.debug(job.data);
+    }, 10000);
   }
 }
