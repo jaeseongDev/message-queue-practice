@@ -8,10 +8,6 @@ export class AppController {
 
   @Get()
   async addJob() {
-    this.logger.debug('Start transcoding...');
-    setTimeout(() => {
-      this.logger.debug('End transcoding...');
-    }, 60000);
-    // return await this.appService.addJob();
+    return await this.appService.addJob();
   }
 }
