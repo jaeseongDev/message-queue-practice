@@ -9,6 +9,12 @@ export class AppService {
   async addJob() {
     const job = await this.audioQueue.add('transcode', {
       foo: 'bar',
+    }, {
+      attempts: 3,
+      backoff: {
+        type: 'exponential',
+        delay: 1000
+      }
     });
     return job.id;
   }
